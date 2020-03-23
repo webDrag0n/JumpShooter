@@ -1,9 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Accelerate
     - CameraFollow
     - CharacterControl
     - Checkpoint
+    - Kill_zone
     - LoadScene
     - UIupdate
     Unity.2D.Tilemap.Editor.dll:
@@ -70,38 +72,36 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9672}
     - Class: 114
-      Script: {instanceID: 10054}
+      Script: {instanceID: 9822}
     - Class: 114
-      Script: {instanceID: 10210}
+      Script: {instanceID: 10056}
     - Class: 114
-      Script: {instanceID: 10276}
+      Script: {instanceID: 10212}
     - Class: 114
-      Script: {instanceID: 10296}
+      Script: {instanceID: 10278}
     - Class: 114
-      Script: {instanceID: 10662}
+      Script: {instanceID: 10298}
     - Class: 114
-      Script: {instanceID: 10868}
+      Script: {instanceID: 10664}
     - Class: 114
-      Script: {instanceID: 10882}
+      Script: {instanceID: 10870}
     - Class: 114
-      Script: {instanceID: 11052}
+      Script: {instanceID: 10884}
     - Class: 114
-      Script: {instanceID: 11060}
+      Script: {instanceID: 11054}
     - Class: 114
-      Script: {instanceID: 11124}
+      Script: {instanceID: 11062}
     - Class: 114
-      Script: {instanceID: 11232}
+      Script: {instanceID: 11126}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11234}
     - Class: 114
-      Script: {instanceID: 11498}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 93450}
+      Script: {instanceID: 11500}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 134
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -131,6 +131,14 @@ ScriptsOnlyBuild:
     - Class: 65
       Script: {instanceID: 0}
     - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 439806}
+    - Class: 114
+      Script: {instanceID: 439812}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 134
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -177,6 +185,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: d510c85201b2ed0783e19af034ca54dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Checkpoint
   - hash:
       serializedVersion: 2
       Hash: fc108ce7d98c40ac0907e8ca7f500c76
@@ -437,7 +451,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: b879e69cfc77681af1fbefd19a155478
+      Hash: 53789f56768d032d0871cae3a6ba9b4b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIupdate
@@ -575,10 +589,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: d510c85201b2ed0783e19af034ca54dc
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Checkpoint
+    className: Accelerate
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Kill_zone
   platform: 19
   scenePathNames:
   - Assets/Scenes/GameScene.unity

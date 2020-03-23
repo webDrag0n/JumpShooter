@@ -13,9 +13,7 @@ public class CharacterControl : MonoBehaviour
     void Start()
     {
         start_pos = gameObject.transform.position;
-#if UNITY_EDITOR
-        PlayerPrefs.DeleteAll();
-#endif
+
     }
 
     // Update is called once per frame
@@ -29,24 +27,33 @@ public class CharacterControl : MonoBehaviour
         // reload checkpoint
         if (Input.GetKey(KeyCode.R))
         {
+            PlayerPrefs.SetInt("player_dead", 0);
             float pos_x = PlayerPrefs.GetFloat("pos_x", start_pos.x);
             float pos_y = PlayerPrefs.GetFloat("pos_y", start_pos.y);
             gameObject.transform.position = new Vector3(pos_x, pos_y, 0);
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        // disable all input after dead
+        // this need to be after R action to allow player respawn after dead
+        if (PlayerPrefs.GetInt("player_dead") == 0)
         {
-            gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, gameObject.GetComponent<Rigidbody>().mass * speed));
+            if (Input.GetKey(KeyCode.A))
+            {
+                gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, gameObject.GetComponent<Rigidbody>().mass * speed));
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -gameObject.GetComponent<Rigidbody>().mass * speed));
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                gameObject.GetComponent<Rigidbody>().AddForce(jump_vector);
+            }
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -gameObject.GetComponent<Rigidbody>().mass * speed));
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            gameObject.GetComponent<Rigidbody>().AddForce(jump_vector);
-        }
+        
     }
 }

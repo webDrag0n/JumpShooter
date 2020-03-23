@@ -8,7 +8,10 @@ public class Checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+#if UNITY_EDITOR
+        PlayerPrefs.DeleteAll();
+#endif
+        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame

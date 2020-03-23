@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1974708561053264841}
   - component: {fileID: 1974708561053264840}
   - component: {fileID: 1974708561053264843}
-  - component: {fileID: 1974708561053264842}
   - component: {fileID: 1974708561053264853}
   - component: {fileID: 1974708561053264846}
+  - component: {fileID: 288272196037977954}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1974708561053264842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974708561053264852}
-  m_Material: {fileID: 13400000, guid: 2d4bea1f0df5d8248af30a30ff94e35b, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1974708561053264853
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -107,9 +94,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 48
-  m_CollisionDetection: 2
+  m_Interpolate: 2
+  m_Constraints: 56
+  m_CollisionDetection: 1
 --- !u!114 &1974708561053264846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,5 +109,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0292c44eabaa75498d2cf358dec64d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  jump_vector: {x: 0, y: 1000, z: 0}
+  speed: 3
+  jump_vector: {x: 0, y: 500, z: 0}
+--- !u!65 &288272196037977954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974708561053264852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
