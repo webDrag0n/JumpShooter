@@ -7,7 +7,7 @@ public class UIupdate : MonoBehaviour
 {
     public GameObject character;
 
-    public GameObject height_label;
+    public GameObject time_label;
     public GameObject dead_message;
 
     // Start is called before the first frame update
@@ -27,6 +27,6 @@ public class UIupdate : MonoBehaviour
         {
             dead_message.SetActive(false);
         }
-        height_label.GetComponent<TextMeshProUGUI>().text = "Height: " + Mathf.RoundToInt(character.transform.position.y);
+        time_label.GetComponent<TextMeshProUGUI>().text = "Time: " + Mathf.Round(Time.time * 100) / 100f;
     }
 }

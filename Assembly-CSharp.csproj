@@ -75,6 +75,7 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Assets\Shaders\NewUnlitShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
@@ -90,6 +91,15 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Polybrush">
+      <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.Polybrush.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Polybrush.Editor">
+      <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.Polybrush.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -114,6 +124,9 @@
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/UNITY_WORKSPACE/JumpShooter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

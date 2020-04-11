@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3433091278478721629}
   - component: {fileID: 3433091278478721630}
   - component: {fileID: 3433091278478721626}
+  - component: {fileID: 4768056480728296018}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3433091278478721631}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!33 &3433091278478721628
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0305b094501167f4f83e5b8baf8c1f28, type: 2}
+  - {fileID: 2100000, guid: 7fe83b9233c6dcd41839ae50f6c8dfb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,4 +106,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f22091e06af7247a35faee53328a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggered: {fileID: 2100000, guid: f67d63d3956992345ae19a354fce4cea, type: 2}
+  triggered: {fileID: 2100000, guid: 0c082e93c512567498c0fda4f66e1c96, type: 2}
+  Halo: {fileID: 4617581893293853015, guid: 665cf5b5724fc7b4a904d9e20bdedb1d, type: 3}
+  Halo_triggered: {fileID: 4498797447473419925, guid: 2944c4cea4e832d479fe9b2ea3388462,
+    type: 3}
+--- !u!65 &4768056480728296018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433091278478721631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.13580608, z: 1}
+  m_Center: {x: 0, y: 0.43209696, z: 0}
