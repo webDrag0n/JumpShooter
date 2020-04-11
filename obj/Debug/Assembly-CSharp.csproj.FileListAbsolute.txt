@@ -1,2 +1,0 @@
-D:\UNITY_WORKSPACE\JumpShooter\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
-D:\UNITY_WORKSPACE\JumpShooter\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
