@@ -15,12 +15,14 @@ public class Accelerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(-Time.time * 1f, 0f));
+
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Rigidbody rig = other.gameObject.GetComponent<Rigidbody>();
-        rig.AddForce(-gameObject.transform.right * accelerate_force);
+        
+        Rigidbody2D rig = collision.gameObject.GetComponent<Rigidbody2D>();
+        rig.AddForce(gameObject.transform.right * accelerate_force);
     }
+    
 }

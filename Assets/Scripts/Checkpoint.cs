@@ -14,10 +14,6 @@ public class Checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-#if UNITY_EDITOR
-        PlayerPrefs.DeleteAll();
-#endif
-        PlayerPrefs.DeleteAll();
 
         bottom_y = gameObject.transform.position.y - 0.2f;
 
@@ -44,7 +40,7 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerPrefs.SetFloat("pos_x", gameObject.transform.position.x);
         PlayerPrefs.SetFloat("pos_y", gameObject.transform.position.y);
@@ -60,5 +56,5 @@ public class Checkpoint : MonoBehaviour
                 );
         }
     }
-
+    
 }

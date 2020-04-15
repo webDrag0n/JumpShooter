@@ -15,9 +15,11 @@ public class Kill_zone : MonoBehaviour
     {
         
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerPrefs.SetInt("player_dead", 1);
+        if (collision.gameObject.tag == "Player")
+        {
+            PlayerPrefs.SetInt("player_dead", 1);
+        }
     }
 }
