@@ -42,9 +42,12 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag != "Player")
+        {
+            return;
+        }
         PlayerPrefs.SetFloat("pos_x", gameObject.transform.position.x);
         PlayerPrefs.SetFloat("pos_y", gameObject.transform.position.y);
-        gameObject.GetComponent<MeshRenderer>().material = triggered;
 
         for (int i = 0; i < Halos.Length; i++)
         {
