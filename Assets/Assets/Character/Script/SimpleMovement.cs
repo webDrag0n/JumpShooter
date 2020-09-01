@@ -13,6 +13,7 @@ public class SimpleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0.015f, 0, 0);
+        //transform.position += new Vector3(0.06f * (0.7f + 0.3f * Mathf.Sin(Time.time * 10)), 0, 0);
+        transform.position += new Vector3(0.04f, 0, 0);
     }
 }
