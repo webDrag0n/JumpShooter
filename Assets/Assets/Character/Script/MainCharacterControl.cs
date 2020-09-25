@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MainCharacterControl : MonoBehaviour
 {
+    // use velocity vector to control movement
+    // therefore manual friction could be applied
+    private Vector3 velocity;
 
     private states character_state;
     private enum states
@@ -14,12 +17,22 @@ public class MainCharacterControl : MonoBehaviour
         jumping
     };
 
+    private direction facing_towards;
+    private enum direction
+    {
+        right,
+        left
+    }
+
     private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+
+        // init velocity
+        velocity = Vector3.zero;
     }
     private void LateUpdate()
     {
@@ -30,7 +43,21 @@ public class MainCharacterControl : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             character_state = states.walking;
-            
+            if (facing_towards == direction.left)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                facing_towards = direction.right;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            character_state = states.walking;
+            if (facing_towards == direction.right)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                facing_towards = direction.left;
+            }
         }
 
         // in another words, walking and running
@@ -64,6 +91,60 @@ public class MainCharacterControl : MonoBehaviour
                 break;
         }
     }
+
+    private void FixedUpdate()
+    {
+        
+
+        // apply movement
+        switch (character_state)
+        {
+            case states.walking:
+                {
+                    if (facing_towards == direction.right)
+                    {
+                        velocity = new Vector3(0.06f, 0, 0);
+                    }
+                    else if (facing_towards == direction.left)
+                    {
+                        velocity = new Vector3(-0.06f, 0, 0);
+                    }
+                    break;
+                }
+            case states.runing:
+                {
+                    if (facing_towards == direction.right)
+                    {
+                        velocity = new Vector3(0.2f, 0, 0);
+                    }
+                    else if (facing_towards == direction.left)
+                    {
+                        velocity = new Vector3(-0.2f, 0, 0);
+                    }
+                    break;
+                }
+            case states.jumping:
+                {
+                    if (facing_towards == direction.right)
+                    {
+                        velocity -= new Vector3(0.001f, 0, 0);
+                    }
+                    else if (facing_towards == direction.left)
+                    {
+                        velocity -= new Vector3(-0.001f, 0, 0);
+                    }
+                    break;
+                }
+            default:
+                {
+                    velocity = new Vector3(0, 0, 0);
+                    break;
+                }
+        }
+
+        transform.position += velocity;
+    }
+
     // Update is called once per frame
     void Update()
     {
