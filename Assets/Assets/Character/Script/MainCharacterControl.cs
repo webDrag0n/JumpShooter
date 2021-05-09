@@ -25,6 +25,7 @@ public class MainCharacterControl : MonoBehaviour
     }
 
     private Animator animator;
+    private int speed_hash;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class MainCharacterControl : MonoBehaviour
 
         // init velocity
         velocity = Vector3.zero;
+        speed_hash = animator.GetFloat("speed").GetHashCode();
     }
     private void LateUpdate()
     {
@@ -82,67 +84,28 @@ public class MainCharacterControl : MonoBehaviour
             case states.idle:
                 // walk 1, run 2, idle 0, jump -1 trigger
                 animator.SetInteger("state_number", 0);
+                if (velocity.x < 0.1f)
+                {
+                    velocity = Vector3.zero;
+                } else
+                {
+                    velocity = Vector3.Lerp(velocity, new Vector3(0, 0, 0), 13 * Time.deltaTime);
+                }
                 break;
             case states.walking:
                 animator.SetInteger("state_number", 1);
+                velocity = Vector3.Lerp(velocity, new Vector3(1, 0, 0), 5 * Time.deltaTime);
                 break;
             case states.runing:
                 animator.SetInteger("state_number", 2);
+                velocity = Vector3.Lerp(velocity, new Vector3(2, 0, 0), 5 * Time.deltaTime);
                 break;
         }
+        animator.SetFloat("speed", velocity.x);
     }
 
     private void FixedUpdate()
     {
-        
-
-        // apply movement
-        switch (character_state)
-        {
-            case states.walking:
-                {
-                    if (facing_towards == direction.right)
-                    {
-                        velocity = new Vector3(0.06f, 0, 0);
-                    }
-                    else if (facing_towards == direction.left)
-                    {
-                        velocity = new Vector3(-0.06f, 0, 0);
-                    }
-                    break;
-                }
-            case states.runing:
-                {
-                    if (facing_towards == direction.right)
-                    {
-                        velocity = new Vector3(0.2f, 0, 0);
-                    }
-                    else if (facing_towards == direction.left)
-                    {
-                        velocity = new Vector3(-0.2f, 0, 0);
-                    }
-                    break;
-                }
-            case states.jumping:
-                {
-                    if (facing_towards == direction.right)
-                    {
-                        velocity -= new Vector3(0.001f, 0, 0);
-                    }
-                    else if (facing_towards == direction.left)
-                    {
-                        velocity -= new Vector3(-0.001f, 0, 0);
-                    }
-                    break;
-                }
-            default:
-                {
-                    velocity = new Vector3(0, 0, 0);
-                    break;
-                }
-        }
-
-        transform.position += velocity;
     }
 
     // Update is called once per frame
