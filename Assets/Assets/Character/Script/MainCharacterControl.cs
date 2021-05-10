@@ -11,10 +11,12 @@ public class MainCharacterControl : MonoBehaviour
     private states character_state;
     private enum states
     {
+        none,
         idle,
         walking,
         runing,
-        jumping
+        jumping,
+        crouching
     };
 
     private direction facing_towards;
@@ -42,6 +44,12 @@ public class MainCharacterControl : MonoBehaviour
 
         character_state = states.idle;
 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            velocity.x = -1;
+            character_state = states.none;
+        }
+
         if (Input.GetKey(KeyCode.D))
         {
             character_state = states.walking;
@@ -50,9 +58,7 @@ public class MainCharacterControl : MonoBehaviour
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 facing_towards = direction.right;
             }
-        }
-
-        if (Input.GetKey(KeyCode.A))
+        } else if (Input.GetKey(KeyCode.A))
         {
             character_state = states.walking;
             if (facing_towards == direction.right)
@@ -62,12 +68,12 @@ public class MainCharacterControl : MonoBehaviour
             }
         }
 
+
+
         // in another words, walking and running
         if (Input.GetKey(KeyCode.LeftShift) && character_state != states.idle)
         {
             character_state = states.runing;
-
-            animator.SetInteger("state_number", 2);
         }
 
         animator.SetBool("is_jump", false);
@@ -78,12 +84,22 @@ public class MainCharacterControl : MonoBehaviour
             animator.SetBool("is_jump", true);
         }
 
+        animator.SetBool("is_crouch", false);
+        if (Input.GetKey(KeyCode.Space) && character_state != states.crouching)
+        {
+            character_state = states.crouching;
+
+            animator.SetBool("is_crouch", true);
+        }
+
+        
+
 
         switch (character_state)
         {
+            case states.none:
+                break;
             case states.idle:
-                // walk 1, run 2, idle 0, jump -1 trigger
-                animator.SetInteger("state_number", 0);
                 if (velocity.x < 0.1f)
                 {
                     velocity = Vector3.zero;
@@ -93,14 +109,14 @@ public class MainCharacterControl : MonoBehaviour
                 }
                 break;
             case states.walking:
-                animator.SetInteger("state_number", 1);
                 velocity = Vector3.Lerp(velocity, new Vector3(1, 0, 0), 5 * Time.deltaTime);
                 break;
             case states.runing:
-                animator.SetInteger("state_number", 2);
                 velocity = Vector3.Lerp(velocity, new Vector3(2, 0, 0), 5 * Time.deltaTime);
                 break;
+            
         }
+        
         animator.SetFloat("speed", velocity.x);
     }
 
